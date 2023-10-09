@@ -8,7 +8,8 @@ pipeline {
     stages {
         stage('Clone') {
             steps {
-             git branch: 'main', credentialsId: 'GIT-CREDENTIALS', url: 'https://github.com/ashokitschool/courses_web_app.git'
+		    git credentialsId: 'Git-Credentials', url: 'https://github.com/tonyvargheser/courses_web_app.git'
+             //git branch: 'main', credentialsId: 'GIT-CREDENTIALS', url: 'https://github.com/ashokitschool/courses_web_app.git'
             }
         }
         stage('Maven Build'){
@@ -16,10 +17,10 @@ pipeline {
               mavenBuild()
             }
         }
-		stage('Code Review'){
-			steps{
-				sonarQube()
-			}
-		}
+		//stage('Code Review'){
+			//steps{
+				//sonarQube()
+			//}
+		//}
     }
 }
