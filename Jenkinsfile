@@ -1,4 +1,4 @@
-@Library('ashokit_shared_lib') _
+@Library('tony-shared-Lib) _
 
 pipeline {
     agent any    
@@ -8,18 +8,13 @@ pipeline {
     stages {
         stage('Clone') {
             steps {
-             git branch: 'main', credentialsId: 'GIT-CREDENTIALS', url: 'https://github.com/ashokitschool/courses_web_app.git'
-            }
+             git branch: 'main', credentialsId: 'Git-Credentials', url: 'https://github.com/ashokitschool/courses_web_app.git'            }
         }
         stage('Maven Build'){
             steps{
               mavenBuild()
             }
         }
-		stage('Code Review'){
-			steps{
-				sonarQube()
-			}
-		}
+		
     }
 }
