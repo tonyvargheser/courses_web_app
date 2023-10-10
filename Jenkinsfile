@@ -16,6 +16,10 @@ pipeline {
               mavenBuild()
             }
         }
-		
+	stage('Code Review'){
+			steps{
+				sonarQube()
+			}
+		}	
     }
 }
